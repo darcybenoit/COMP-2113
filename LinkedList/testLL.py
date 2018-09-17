@@ -7,7 +7,7 @@ newList.addNode(400)
 newList.traverse()
 
 
-newList.deleteNodeByValue(100)
+newList.deleteNodeByPosition(3)
 print ("---")
 newList.traverse()
 newList.addNode(500)

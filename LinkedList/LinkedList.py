@@ -74,12 +74,14 @@ class LinkedList:
 
 
     # deletes a node based on position in the LinkedList
-    def deleteNodeNum(self,position):
+    def deleteNodeByPosition(self,position):
         node = self.head
-        if (position == 0):
+        if (position == 0):		# node is the head
            self.head = node.next
-        for x in range(0, position-1):
+        for x in range(0, position-1):	# node is in the middle/end
            node = node.next
         node.next = node.next.next 
+        while (node.next != None):	# go to end, fix pointer to tail 
+           node = node.next
         self.tail = node
         self.num -= 1
