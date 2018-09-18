@@ -37,20 +37,41 @@ class LinkedList:
         newNode.next = None 
         self.num += 1
 
+    # Adds a node to the LinkedList at a particular position
+    def addNodeByPosition(self,position,value):
+        if (position < 0 or position > self.num+1):
+           return False
+        node = self.head
+        newNode = Node.Node(value)
+        if (position == 0):             # node is the head
+           newNode.next = self.head
+           self.head = newNode
+           self.num += 1
+           return True
+        if (position == self.num+1):      # node is the end
+           self.tail.next = newNode
+           newNode.next = None
+           self.tail = newNode
+           self.num += 1
+           return True
+        for x in range(0, position-1):  # node is in the middle
+           node = node.next
 
-    # finds the position of a node in the LinkedList (position number) based on the value.
-    # Returns a -1 if no node with that value is found. 
-    def findNodeValue(self,value):
-        i = 0 
+        newNode.next = node.next
+        node.next = newNode
+        self.num += 1
+
+    # finds a node in the LinkedList based on the value.
+    # Returns the Node if found, False if no node with that value is found. 
+    def findNodeByValue(self,value):
         node = self.head
         while True:
            if (node.value == value):
-              return i
+              return node
            elif (node.next == None):
-              return -1
+              return False
            else: 
               node = node.next
-              i += 1
 
     # Deletes a node based on the value of the node. 
     # This will delete the first node it finds with this value.
