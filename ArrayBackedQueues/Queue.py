@@ -18,7 +18,7 @@ class Queue:
                 self.a[j] = self.a[j-1]
             self.a[i] = x
         else:
-            self.a[n] = x
+            self.a[self.n] = x
         self.n += 1
         print ("self.a = ", self.a)
 
